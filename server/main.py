@@ -19,6 +19,7 @@ def upload_pdf():
         return jsonify({'error': 'No selected file'}), 400
 
     pdf_text = extract_text_from_pdf(file)
+    print("Success")
     return jsonify({'text': 'PDF uploaded successfully'}), 200
 
 @app.route('/ask', methods=['POST'])
