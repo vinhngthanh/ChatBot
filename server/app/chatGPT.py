@@ -1,9 +1,11 @@
-import requests
 from openai import OpenAI
+from dotenv import load_dotenv
+import os
 
 def ask_chatgpt(text, question):
+    load_dotenv()
     client = OpenAI(
-        api_key = "sk-proj-YFp8Hxx5H9DQTUZ7nSbJT3BlbkFJYpMQGlAOUyOp7D260hvk"
+        api_key = os.getenv("OPENAI_API_KEY")
     )
     prompt =  f"Context: {text}\nQuestion: {question}"
 
