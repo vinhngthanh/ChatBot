@@ -1,18 +1,20 @@
 import requests
-
-def read_api_key(filename):
-    with open(filename, 'r') as file:
-        return file.read().strip()
+from openai import OpenAI
 
 def ask_chatgpt(text, question):
-    api_key = "sk-proj-ix6xNF1GgBPxdxdimDbPT3BlbkFJF6PdKMQRkqflDNkIC1de"
-    headers = {
-        "Authorization": f"Bearer {api_key}"
-    }
-    data = {
-        "model": "gpt-3.5-turbo",
-        "prompt": f"Context: {text} \n\n Question: {question}"
-    }
-    response = requests.post("https://api.openai.com/v1/completions", json=data, headers=headers)
-    response_json = response.json()
-    return response_json.get('choices', [{}])[0].get('text', "").strip()
+    client = OpenAI(
+        api_key = "sk-proj-YFp8Hxx5H9DQTUZ7nSbJT3BlbkFJYpMQGlAOUyOp7D260hvk"
+    )
+    prompt =  f"Context: {text}\nQuestion: {question}"
+
+    response = client.chat.completions.create(
+        messages = [
+            {
+                "role": "user", 
+                "content": prompt
+             }
+        ],
+        model = "gpt-3.5-turbo"
+    )
+    
+    return response.choices[0].message.content
