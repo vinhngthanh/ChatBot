@@ -1,25 +1,16 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
+import Ask from "./components/Ask";
+import UploadPDF from "./components/UploadPDF";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>PDF Uploader</h1>
+      <UploadPDF />
+      {/* <h1>Ask Question</h1>
+      <Ask /> */}
     </div>
   );
-}
+};
 
 export default App;
