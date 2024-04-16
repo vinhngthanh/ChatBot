@@ -5,7 +5,7 @@ def read_api_key(filename):
         return file.read().strip()
 
 def ask_chatgpt(text, question):
-    api_key = ""
+    api_key = "sk-proj-ix6xNF1GgBPxdxdimDbPT3BlbkFJF6PdKMQRkqflDNkIC1de"
     headers = {
         "Authorization": f"Bearer {api_key}"
     }
