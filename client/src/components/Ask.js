@@ -3,7 +3,9 @@ import axios from "axios";
 
 const AskQuestion = ({ fileIsUploading, fileIsUploaded }) => {
   const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
+  const [answer, setAnswer] = useState(
+    "Please ask a question to get an answer!"
+  );
   const [isGeneratingQuestion, setIsGeneratingQuestion] = useState(false);
 
   const handleAskQuestion = () => {
@@ -39,7 +41,7 @@ const AskQuestion = ({ fileIsUploading, fileIsUploaded }) => {
       >
         Ask
       </button>
-      <p>Answer: {answer}</p>
+      <p>Answer: {isGeneratingQuestion ? "Loading..." : answer}</p>
     </div>
   );
 };
