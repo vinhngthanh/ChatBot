@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const AskQuestion = () => {
+const AskQuestion = ({ fileIsUploading, fileIsUploaded }) => {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
+  const [isGeneratingQuestion, setIsGeneratingQuestion] = useState(false);
 
   const handleAskQuestion = () => {
+    setIsGeneratingQuestion(true);
     axios
       .post("http://localhost:5000/ask", { question })
       .then((response) => {
@@ -13,6 +15,9 @@ const AskQuestion = () => {
       })
       .catch((error) => {
         console.error(error);
+      })
+      .finally(() => {
+        setIsGeneratingQuestion(false);
       });
   };
 
@@ -23,7 +28,17 @@ const AskQuestion = () => {
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
       />
-      <button onClick={handleAskQuestion}>Ask</button>
+      <button
+        onClick={handleAskQuestion}
+        disabled={
+          fileIsUploading ||
+          !fileIsUploaded ||
+          isGeneratingQuestion ||
+          !question.trim()
+        }
+      >
+        Ask
+      </button>
       <p>Answer: {answer}</p>
     </div>
   );
