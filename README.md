@@ -16,3 +16,5 @@ A brief overview of the project, its purpose, and its main features.
 Instructions on how to set up the application locally.
 
 1. **Clone the Repository:**
+   git clone https://github.com/yourusername/yourproject.git
+   cd yourproject
