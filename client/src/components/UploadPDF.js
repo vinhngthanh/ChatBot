@@ -7,6 +7,7 @@ const FileUpload = ({ fileIsUploading, fileIsUploaded }) => {
   const prevFileRef = useRef(null);
 
   const handleFileChange = (event) => {
+    fileIsUploaded(false);
     const selectedFile = event.target.files[0];
     setUploadMessage("No file uploaded.");
     if (selectedFile) {
@@ -24,7 +25,6 @@ const FileUpload = ({ fileIsUploading, fileIsUploaded }) => {
       .then((response) => {
         console.log(response.data);
         fileIsUploading(false);
-        fileIsUploaded(true);
         setUploadMessage(
           "File uploaded successfully! Now using file name: " + file.name
         );
