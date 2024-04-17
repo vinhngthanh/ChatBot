@@ -7,8 +7,8 @@ const App = () => {
     <div>
       <h1>PDF Uploader</h1>
       <UploadPDF />
-      {/* <h1>Ask Question</h1>
-      <Ask /> */}
+      <h1>Ask Question</h1>
+      <Ask />
     </div>
   );
 };
