@@ -19,6 +19,7 @@ CHATBOT is a web application that facilitates question-answering based on upload
 
 - **Python Flask**: Serves as the core backend framework to handle API requests and interact with uploaded PDF files.
 - **Flask-CORS**: A Flask extension required to handle Cross-Origin Resource Sharing (CORS), enabling the frontend hosted on a different domain or port to interact securely with the backend.
+- **OpenAI**: Used for generating answers to questions based on the text extracted from the given PDF.
 
 ### Frontend
 
