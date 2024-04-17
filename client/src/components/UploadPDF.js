@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import "../css/UploadPDF.css";
 import axios from "axios";
 
 const FileUpload = ({ fileIsUploading, fileIsUploaded }) => {

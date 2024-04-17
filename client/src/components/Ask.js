@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../css/Ask.css";
 import axios from "axios";
 
 const AskQuestion = ({ fileIsUploading, fileIsUploaded }) => {
@@ -25,8 +26,8 @@ const AskQuestion = ({ fileIsUploading, fileIsUploaded }) => {
 
   return (
     <div>
-      <input
-        type="text"
+      <textarea
+        className="input-large"
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
       />
