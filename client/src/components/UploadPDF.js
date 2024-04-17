@@ -3,9 +3,11 @@ import axios from "axios";
 
 const FileUpload = () => {
   const [file, setFile] = useState(null);
+  const [uploadMessage, setUploadMessage] = useState("No file uploaded.");
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
+    setUploadMessage("No file uploaded.");
   };
 
   const handleUpload = () => {
@@ -16,9 +18,13 @@ const FileUpload = () => {
       .post("http://localhost:5000/upload", formData)
       .then((response) => {
         console.log(response.data);
+        setUploadMessage(
+          "File uploaded successfully! Now using file name: " + file.name
+        );
       })
       .catch((error) => {
         console.error(error);
+        setUploadMessage("Upload failed. Please try again.");
       });
   };
 
@@ -26,6 +32,8 @@ const FileUpload = () => {
     <div>
       <input type="file" onChange={handleFileChange} />
       <button onClick={handleUpload}>Upload</button>
+      {uploadMessage && <p>{uploadMessage}</p>}
+      {}
     </div>
   );
 };
